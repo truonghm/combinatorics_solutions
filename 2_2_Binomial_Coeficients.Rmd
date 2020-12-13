@@ -1,0 +1,79 @@
+## Properties of the Binomial Coefficients
+
+1. __Expansion__:  
+
+$$
+{n \choose k}=
+\begin{cases}
+\frac{n!}{k!(n-k)!}=\frac{n^{\underline{k}}}{k!}=\frac{P(n,k}{k!} \quad if \;0 \leq k \leq n, \\
+0 \quad otherwise
+\end{cases}
+ $$
+
+2. ${n \choose k}={n \choose n-k}$
+
+3. ${n \choose k}={n-1 \choose k}+{n-1 \choose k-1}$
+
+4. __Binomial Theorem:__
+$$(x+y)^n=\sum_{k=0}^n {n \choose k}x^ky^{n-k}$$
+
+5. $\sum_{k=0}^n{n \choose k}=2^n$, when $x=1 \;and\;y=1$
+
+6. Summing over lower index (or symmetry. Accross row $n$ of Pascal's Triangle):
+$$\sum_{k}(-1)^k{n \choose k}=
+\begin{cases}
+0 \;if\;n\geq1 \\
+1 \;if\;n=0 
+\end{cases}
+$$
+
+7. Summing over upper index (i.e. summing by column in Pascal's Triangle):
+$$\sum_{k=0}^n{k \choose m}={n+1 \choose m+1}$$
+with $m$ being the column index, and $n$ being the row. After summing, we have a sum of all values in column $m$, from row $0$ to row $n$.
+
+8. Vandermonde's identity:
+$${m+n \choose r}=\sum_{k}{m \choose k}{n \choose r-k}$$
+
+Intuitive explanation: Suppose a group has $m$ males and $n$ females. The number of ways to pick a smaller group of $r$ members, in which there are $k$ males and $r-k$ females is:
+
+- When picking directly from the original group of $m+n$ people, we have: ${m+n \choose r}$
+- When picking $k$ males from $m$ males and $r-k$ females from $n$ females, we have: $\sum{m \choose k}{n \choose r-k}$
+
+## Exercises
+
+### Ex 1
+
+Combinatorial proof that $\sum {n \choose k}=2^n \; (*)$:
+
+We have: 
+- When n=0,
+$$\sum{n \choose k}=2^0=1$$
+So $(*)$ is true.
+
+- When n>0, suppose that:
+$$\sum_{k=0}^j{j \choose k}=2^j$$
+with j being a positive integer.
+We need to prove that: 
+$$\sum_{k=0}^{j+1}{j+1 \choose k}=2^j+1$$
+If this is true, then by induction, the identity holds for all non-negative $n$.
+
+- We have:
+$${j+1 \choose k}={j \choose k}+{j \choose k-1}$$
+So:
+$$\sum{j+1 \choose k}=\sum{j \choose k}+\sum{j \choose k-1}=2^J+2^J=2^{j+1}$$
+
+### Ex 2
+
+Prove the absorption/extraction identity: If $n$ is a positive integer and $k$ is a nonzero integer, then:
+
+$${n \choose k}=\frac{n}{k}{n-1 \choose k-1} \quad (*)$$
+
+---
+We have the RHS of $(*)$ can be transformed as:
+
+$$\frac{n}{k}\cdot\frac{(n-1)!}{(k-1)!(n-1-k+1)!}=\frac{n!}{(n-k)!}=LHS$$
+
+---
+### Ex 3
+
+Use algebraic methods to prove the cancellation identity: If $n$ and $k$ are nonnegative integers and $m$ is an integer with $m\leq n$, then:
