@@ -76,4 +76,14 @@ $$\frac{n}{k}\cdot\frac{(n-1)!}{(k-1)!(n-1-k+1)!}=\frac{n!}{(n-k)!}=LHS$$
 ---
 ### Ex 3
 
-Use algebraic methods to prove the cancellation identity: If $n$ and $k$ are nonnegative integers and $m$ is an integer with $m\leq n$, then:
+> Use algebraic methods to prove the cancellation identity: If $n$ and $k$ are nonnegative integers and $m$ is an integer with $m\leq n$, then:
+$${n \choose k}{k \choose m}={n \choose m}{m-n \choose k-m}$$
+
+We have: 
+
+$$\begin{aligned}
+RHS &= \frac{n!}{k!(n-k)!}\frac{k!}{m!(k-m)!} \\
+&= \frac{}{}
+\end{aligned}
+$$
+
