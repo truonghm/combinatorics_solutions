@@ -264,12 +264,59 @@ $$\begin{aligned}
 ---
 ### Ex 9
 > Let $n$ be a nonnegative integer.  Suppose $f(x)$ and $g(x)$ are functions defined for all real number $x$, and that both functions are $n$ times differentiable. Let $f^{(k)}$ denote the $k$th derivative of $f(x)$, so $f^{(0)}(x)=f(x)$, $f^{(1)}(x)=f'(x)$, and $f^{(2)}(x)=f''(x)$. Let $h(x)=f(x)g(x)$. Show that:
-$$h^{(n)}(x)=\sum_k {n \choose k} f^{(k)}(x) g^{(n-k)}(x)$$
+$$h^{(n)}(x)=\sum_k {n \choose k} f^{(k)}(x) g^{(n-k)}(x) \quad (*)$$
+
+Let's revise the product rule, applied for $h(x)=f(x)g(x)$:
+
+- $1^{st}$ derivative: $h'(x)=h^{(1)}(x)=f'(x)g(x)+f(x)g'(x)$
+- $2^{nd}$ derivative: $h''(x)=h^{(2)}(x)=f''(x)g(x)+f'(x)g'(x)+f'(x)g'(x)+f(x)g''(x)$
+- And so on.
+
+Notice that as the power of derivative increases, the number of terms of the sum on the RHS doubles, so the number of terms for the $n^{th}$ derivative is $2^n$.
+
+Also notice that the terms double with specific pattern: each pair in the sum of the $n^{th}$ derivative produces 2 pairs in the sum of the $(n+1)^{th}$ derivative as follow: 
+
+$$
+f^{(n)}(x)g^{n-1}(x)+f^{(n-1)}(x)g^{n}(x) \\ \Rightarrow \underbrace{f^{(n+1)}(x)g^{n-1}(x) +
+f^{(n)}(x)g^{n}(x)}_{only\;powers\;of\;f\;increase\;by\;1} + \underbrace{f^{(n)}(x)g^{n}(x)+f^{(n-1)}(x)g^{n+1}(x)}_{only\;powers\;of\;g\;increase\;by\;1}
+$$
+
+- Pair #1: powers of $f(x)$ increase by 1, while powers of $g(x)$ stay the same
+- Pair #2: powers of $g(x)$ increase by 1, while powers of $f(x)$ stay the same
+
+Using this pattern, we prove $(*)$ by induction on $n+1$:
+
+$$\begin{aligned}
+h^{(n+1)}&=\left[\sum_{k=0}^n {n \choose k} f^{(k)} g^{(n-k)}\right]' \\
+&=\sum_{k=0}^n {n \choose k} f^{(k+1)} g^{(n-k)}+\sum_{k=0}^n {n \choose k} f^{(k)} g^{(n-k+1)} \\
+&=\sum_{k=1}^{n+1} {n \choose k-1} f^{(k)} g^{(n-k+1)}+\sum_{k=0}^{n} {n \choose k} f^{(k)} g^{(n-k+1)} \\
+&={n \choose n} f^{(n+1)} g^{(0)}+\sum_{k=1}^{n} {n \choose k-1} f^{(k)} g^{(n-k+1)}+\sum_{k=1}^{n} {n \choose k} f^{(k)} g^{(n-k+1)}+{n \choose 0} f^{(0)} g^{(n+1)} \\
+&=f^{(n+1)}g+fg^{(n+1)}+\sum_{k=1}^{n} \left[{n \choose k-1}+ {n \choose k}\right]f^{(k)} g^{(n-k+1)} \\
+&=f^{(n+1)}g+fg^{(n+1)}+\sum_{k=1}^{n} {n+1 \choose k}f^{(k)} g^{(n-k+1)} \\
+&=\sum_{k=0}^{n+1} {n+1 \choose k}f^{(k)} g^{(n-k+1)}
+\end{aligned}$$
+
+So $(*)$ holds for $n+1$, and thus holds for all nonnegative integer $n$.
 
 ---
 ### Ex 10
 > In the Virginia lottery game Win For Life, an entry consists of a selection of six different numbers between 1 and 42, and each drawing selects seven different numbers in this range. How many different entries can match at least three of the drawn numbers?
 
+Explaining some terms:
+
+- Entry: A participant selects 6 numbers to play
+- Drawing: A drawing is a result, which consists of 7 numbers. The goal is the match as many numbers in an entry with the numbers in a drawing.
+
+We pick at least 3, so $k$ numbers from 7 winning numbers, and $6-k$ from 35 non-winning numbers:
+
+$$\sum_{k=3}^{6}{{7 \choose k}{35 \choose 6-k}}=250,642$$
+
 ---
 ### Ex 11
-> The state of Florida administers several lottery games. In Florida Lotto, a player picks a set of six numbers between 1 and 36. In which game is a player more likely to match at least two numbers against the ones drawn?
+> The state of Florida administers several lottery games. In Florida Lotto, a player picks a set of six numbers between 1 and 53. In Fantasy 5, a gambler chooses a set of five numbers between 1 and 36. In which game is a player more likely to match at least two numbers against the ones drawn?
+
+- For Florida Lotto, all possible drawings: ${53 \choose 6}$. To match at least 2 numbers, the number of ways to pick is: $\sum_{k=2}^6{{47 \choose 6-k}{6 \choose k}}$. The odd is: $\approx 0.131385$
+
+- For Fantasy 5, all possible drawings: ${36 \choose 5}$. To match at least 2 numbers, the number of ways to pick is: $\sum_{k=2}^5{{31 \choose 5-k}{5 \choose k}}$. The odd is: $\approx 0.131982$
+
+- So Fantasy 5 has the better odd of matching at least two numbers.
