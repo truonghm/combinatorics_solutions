@@ -9,6 +9,8 @@
 2. Combinatorics
 
   - [Essential Problems](https://htmlpreview.github.io/?https://github.com/truonghm/combinatorics_solutions/blob/main/2_1_Essential_problems.html)
+  
+  - [Binomial Coefficients](https://htmlpreview.github.io/?https://github.com/truonghm/combinatorics_solutions/blob/main/2_2_Binomial_Coeficients.md)
 
 # Plan
 
