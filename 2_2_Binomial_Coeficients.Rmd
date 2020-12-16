@@ -222,9 +222,44 @@ e) $\sum_{k \leq m} (-1)^k {n \choose k}$, for an integer $m$ and a nonnegative 
 ---
 ### Ex 8
 > Prove the binomial theorem for falling factorial powers,
-$$(x+y)^{\underline{n}}=\sum_k {n \choose k}x^{\underline{k}} y^{\underline{n-k}}$$
+$$(x+y)^{\underline{n}}=\sum_k {n \choose k}x^{\underline{k}} y^{\underline{n-k}} \quad (*)$$
+and for rising factorial powers,
+$$(x+y)^{\overline{n}}=\sum_k {n \choose k}x^{\overline{k}} y^{\overline{n-k}} \quad (**)$$
 
+1. For falling factorial powers - the RHS of $(*)$ can be transformed as:
 
+$$\begin{aligned}
+\sum_k {n \choose k}x^{\underline{k}} y^{\underline{n-k}} &= \sum_k \frac{n!}{k!(n-k)!}\frac{x!}{(x-k)!}\frac{y!}{(y-n+k)!} \\
+&=\sum_k n! \frac{x!}{k!(x-k)!}\frac{y!}{(n-k)!(y-n+k)!} \\
+&=n! \sum_k {x \choose k}{y \choose n-k}
+\end{aligned}$$
+
+So: 
+$$\begin{aligned}
+(x+y)^{\underline{n}}&=n! \sum_k {x \choose k}{y \choose n-k} \\
+\Leftrightarrow \frac{(x+y)^{\underline{n}}}{n!}&=\sum_k {x \choose k}{y \choose n-k} \\
+\Leftrightarrow {x+y \choose n}&=\sum_k {x \choose k}{y \choose n-k} \\
+\end{aligned}$$
+
+This is the ___Vandermonde's Identity___.
+
+1. For rising factorial powers- Note that rising factorial powers can be transformed into falling factorial powers as follow:
+
+$$x^{\overline{k}}=(-1)^{k}(-x)^{\underline{k}}$$
+
+and vice versa:
+$$x^{\underline{k}}=(-1)^{k}(-x)^{\overline{k}}$$
+
+So the RHS of $(**)$ can be transformed as:
+
+$$\begin{aligned}
+\sum_k {n \choose k}x^{\overline{k}} y^{\overline{n-k}}&=\sum_k \frac{n!}{k!(n-k)!}(-1)^{k}(-x)^{\underline{k}} (-1)^{n-k}(-y)^{\underline{n-k}} \\
+&=n!(-1)^n \sum_k \frac{(-x)^{\underline{k}}}{k!} \frac{(-y)^{\underline{n-k}}}{(n-k)!} \\
+&=n!(-1)^n \sum_k {-x \choose k}{-y \choose n-k} \\
+&=n!(-1)^n {-x-y \choose n} \quad (Vandermonde's\;Identity) \\
+&=(-1)^n (-x-y)^{\underline{n}} \\
+&=(x+y)^{\overline{n}} \quad (Convert\;back\;to\;rising\;factorial\;power)
+\end{aligned}$$
 
 ---
 ### Ex 9
