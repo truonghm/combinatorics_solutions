@@ -8,7 +8,7 @@
 
 2. Combinatorics
 
-- [Essential Problems](https://htmlpreview.github.io/?https://github.com/truonghm/combinatorics_solutions/blob/main/2_1_Essential_problems.html)
+  - [Essential Problems](https://htmlpreview.github.io/?https://github.com/truonghm/combinatorics_solutions/blob/main/2_1_Essential_problems.html)
 
 # Plan
 
