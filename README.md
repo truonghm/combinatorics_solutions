@@ -2,7 +2,7 @@
 
  Exercise Solutions for Combinatorics and Graph Theory - John Harris
  
-# Exercises
+# Exercises  (HTML)
 
 1. Graph Theory
 
