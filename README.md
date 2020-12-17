@@ -14,8 +14,8 @@
 
 # Plan
 
-- December 2020: Chapter 2.1 & 2.2
-
+[x] December 2020: Chapter 2.1 & 2.2
+[ ] February 2020: The rest of Part 2
 # To-do
 
 - Compile to HTML
